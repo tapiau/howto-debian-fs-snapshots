@@ -26,7 +26,8 @@ btrfs subvol snapshot -r /mnt/btrfs/@rootfs/ /mnt/btrfs/_init
 ```
 
 Put ```restore.sh``` into /mnt/btrfs/
-```#!/bin/bash
+```
+#!/bin/bash
 
 NOW=`date +'%Y%m%d-%H%M%S'`
 
@@ -35,7 +36,8 @@ btrfs subvol snapshot /mnt/btrfs/_init /mnt/btrfs/@rootfs
 ```
 
 put ```shapshot.sh``` into /mnt/btrfs/
-```#!/bin/bash
+```
+#!/bin/bash
 
 NOW=`date +'%Y%m%d-%H%M%S'`
 
