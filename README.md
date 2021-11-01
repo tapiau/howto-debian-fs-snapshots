@@ -4,11 +4,13 @@ Debian FS snapshots and vanilia state restore
 
 Do debian clean install. 
 
-```mkdir /mnt/btrfs```
-```mount /dev/sda1 /mnt/btrfs -o subvol=/```
-```btrfs subvol create /mnt/btrfs/@boot```
-```btrfs subvol create /mnt/btrfs/@snap```
-```cp -ar /boot/* /mnt/btrfs/@boot/```
+```
+mkdir /mnt/btrfs
+mount /dev/sda1 /mnt/btrfs -o subvol=/
+btrfs subvol create /mnt/btrfs/@boot
+btrfs subvol create /mnt/btrfs/@snap
+cp -ar /boot/* /mnt/btrfs/@boot/
+```
 
 Add to /etc/fstab:
 ```UUID=filesystem-uuid-same-as-for-rootfs /boot               btrfs   noatime,nodiratime,subvol=@boot 0       0
@@ -17,8 +19,10 @@ UUID=filesystem-uuid-same-as-for-rootfs /mnt/btrfs               btrfs   noatime
 
 Reboot.
 
-```grub-install /dev/sda```
-```btrfs subvol snapshot -r /mnt/btrfs/@rootfs/ /mnt/btrfs/_init```
+```
+grub-install /dev/sda
+btrfs subvol snapshot -r /mnt/btrfs/@rootfs/ /mnt/btrfs/_init
+```
 
 Put ```restore.sh``` into /mnt/btrfs/
 ```#!/bin/bash
