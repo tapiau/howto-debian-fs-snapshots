@@ -7,13 +7,14 @@ Do debian clean install.
 ```
 mkdir /mnt/btrfs
 mount /dev/sda1 /mnt/btrfs -o subvol=/
-btrfs subvol create /mnt/btrfs/@boot
 btrfs subvol create /mnt/btrfs/@snap
+btrfs subvol create /mnt/btrfs/@boot
 cp -ar /boot/* /mnt/btrfs/@boot/
 ```
 
 Add to /etc/fstab:
-```UUID=filesystem-uuid-same-as-for-rootfs /boot               btrfs   noatime,nodiratime,subvol=@boot 0       0
+```
+UUID=filesystem-uuid-same-as-for-rootfs /boot               btrfs   noatime,nodiratime,subvol=@boot 0       0
 UUID=filesystem-uuid-same-as-for-rootfs /mnt/btrfs               btrfs   noatime,nodiratime,subvol=/ 0       0
 ```
 
